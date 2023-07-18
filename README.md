@@ -5,6 +5,10 @@ by Shahaf Alon
 This is a small scale (but easily sclable) API service for managing the hardest question of all:
 "Where should we eat today? let's vote!"
 
+## Deploy Details:
+
+For Swagger API docs and execution go to:
+'https://convious-046668734d11.herokuapp.com/docs'
 
 ## Notes about the exercise
 
