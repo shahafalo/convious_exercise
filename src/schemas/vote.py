@@ -17,6 +17,7 @@ class VoteUpdate(VoteBase):
     id: int
 
     class Config:
+        from_attributes = True
         orm_mode = True
 
 
@@ -28,4 +29,5 @@ class Vote(VoteBase):
     update_time: Union[datetime.datetime, None] = None
 
     class Config:
+        from_attributes = True
         orm_mode = True
