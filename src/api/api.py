@@ -6,7 +6,7 @@ from api.endpoints import votes
 from api.endpoints import voters
 
 
-api_router = APIRouter()
+api_router = APIRouter(prefix="/api")
 api_router.include_router(restaurants.router, prefix="/restaurants", tags=["restaurants"])
 api_router.include_router(results.router, prefix="/results", tags=["results"])
 api_router.include_router(votes.router, prefix="/votes", tags=["votes"])
