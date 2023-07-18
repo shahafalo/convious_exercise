@@ -76,6 +76,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 Python 3.7+
 
+## Usage Flow Example:
+
+create restaurant(s) -> create voter(s) -> create vote(s) -> get winner (return value is restaurant id) -> read restaurant by id
+
+
 ## Running the tests
 
 # todo: explain pytest command
