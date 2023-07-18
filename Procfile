@@ -1,1 +1,1 @@
-web: uvicorn src/main:app
+web: uvicorn main:app
