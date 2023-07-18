@@ -5,6 +5,10 @@ by Shahaf Alon
 This is a small scale (but easily sclable) API service for managing the hardest question of all:
 "Where should we eat today? let's vote!"
 
+## Deploy Details:
+
+For Swagger API docs and execution go to:
+'https://convious-046668734d11.herokuapp.com/docs'
 
 ## Notes about the exercise
 
@@ -62,15 +66,9 @@ pip install -r requirements.txt
 
 Run the script with `uvicorn main:app`.  
 
-# todo: validate
-
 ## Tests
 
-Run the tests with `pytest`.
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+Run the tests with `pytest src/`.
 
 ### Prerequisites
 
@@ -79,14 +77,3 @@ Python 3.7+
 ## Usage Flow Example:
 
 create restaurant(s) -> create voter(s) -> create vote(s) -> get winner (return value is restaurant id) -> read restaurant by id
-
-
-## Running the tests
-
-# todo: explain pytest command
-
-This is a project for a Convious coding exercise.
-
-
-
-- flow including specific notes about another read after get winner
