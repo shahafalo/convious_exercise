@@ -1,7 +1,7 @@
 from sqlalchemy.orm import Session
 
-from models.restaurant import Restaurant
-import schemas
+from src.models.restaurant import Restaurant
+from src import schemas
 
 
 def get_restaurants_by_ids(restaurant_ids: list[int], db: Session) -> list[Restaurant]:

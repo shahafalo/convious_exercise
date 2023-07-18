@@ -5,10 +5,10 @@ from sqlalchemy.orm import Session
 
 from fastapi import APIRouter, HTTPException, Depends
 
-from schemas.vote import Vote, VoteCreate, VoteUpdate
-from crud import vote_crud, voter_crud, restaurant_crud
-from db.utils import get_db
-from results_manager.manager import TooManyVotesError
+from src.schemas.vote import Vote, VoteCreate, VoteUpdate
+from src.crud import vote_crud, voter_crud, restaurant_crud
+from src.db.utils import get_db
+from src.results_manager.manager import TooManyVotesError
 
 router = APIRouter()
 

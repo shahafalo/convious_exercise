@@ -5,10 +5,10 @@ from sqlalchemy.orm import Session
 
 from fastapi import APIRouter, Depends
 
-from schemas.result import Result, Winner
-from crud import vote_crud
-from db.utils import get_db
-from results_manager.manager import ResultsManager
+from src.schemas.result import Result, Winner
+from src.crud import vote_crud
+from src.db.utils import get_db
+from src.results_manager.manager import ResultsManager
 
 router = APIRouter()
 manager = ResultsManager()

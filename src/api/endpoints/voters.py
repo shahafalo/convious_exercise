@@ -2,9 +2,9 @@ from sqlalchemy.orm import Session
 
 from fastapi import APIRouter, HTTPException, Depends
 
-from schemas.voter import Voter, VoterCreate
-from crud import voter_crud
-from db.utils import get_db
+from src.schemas.voter import Voter, VoterCreate
+from src.crud import voter_crud
+from src.db.utils import get_db
 
 router = APIRouter()
 

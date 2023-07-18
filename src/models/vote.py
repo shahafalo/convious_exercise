@@ -3,7 +3,7 @@ import datetime
 from sqlalchemy import Column, Integer, DateTime, ForeignKey
 from sqlalchemy.orm import relationship
 
-from db.base_class import Base
+from src.db.base_class import Base
 
 
 class Vote(Base):

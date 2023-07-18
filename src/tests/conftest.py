@@ -9,12 +9,12 @@ from sqlalchemy.pool import StaticPool
 import random
 
 from main import app
-from db.utils import get_db
-from db.base import Base
-from models.restaurant import Restaurant
-from models.vote import Vote
-from models.voter import Voter
-from results_manager.manager import ResultsManager
+from src.db.utils import get_db
+from src.db.base import Base
+from src.models.restaurant import Restaurant
+from src.models.vote import Vote
+from src.models.voter import Voter
+from src.results_manager.manager import ResultsManager
 
 # todo: add typehints
 

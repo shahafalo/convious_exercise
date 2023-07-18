@@ -3,7 +3,7 @@ import datetime
 from sqlalchemy import Column, Integer, String, DateTime
 from sqlalchemy_utils import URLType
 
-from db.base_class import Base
+from src.db.base_class import Base
 
 
 class Restaurant(Base):

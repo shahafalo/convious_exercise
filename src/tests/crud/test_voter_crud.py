@@ -1,5 +1,5 @@
-from crud import voter_crud
-from schemas.voter import VoterCreate, Voter
+from src.crud import voter_crud
+from src.schemas.voter import VoterCreate, Voter
 
 
 def test_get_voter(db, db_voter):

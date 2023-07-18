@@ -2,7 +2,7 @@ import datetime
 
 from sqlalchemy import Column, Integer, DateTime, String
 
-from db.base_class import Base
+from src.db.base_class import Base
 
 
 class Voter(Base):

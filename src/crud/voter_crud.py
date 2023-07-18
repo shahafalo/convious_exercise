@@ -1,8 +1,8 @@
 from sqlalchemy.orm import Session
 
-from models.voter import Voter
-from schemas.voter import VoterCreate
-from schemas.voter import Voter as Voter_Schema
+from src.models.voter import Voter
+from src.schemas.voter import VoterCreate
+from src.schemas.voter import Voter as Voter_Schema
 
 
 def get_voters_by_ids(voter_ids: list[int], db: Session) -> list[Voter]:

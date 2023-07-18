@@ -2,8 +2,8 @@ import datetime
 
 import pytest
 
-from crud import vote_crud
-from schemas.vote import VoteCreate, VoteUpdate
+from src.crud import vote_crud
+from src.schemas.vote import VoteCreate, VoteUpdate
 
 
 def test_get_vote(db, db_vote):

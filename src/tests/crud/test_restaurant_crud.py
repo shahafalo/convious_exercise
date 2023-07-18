@@ -1,6 +1,6 @@
-import schemas.restaurant
-from crud import restaurant_crud
-from schemas.restaurant import RestaurantCreate
+from src.schemas import restaurant
+from src.crud import restaurant_crud
+from src.schemas.restaurant import RestaurantCreate
 
 
 def test_get_restaurant(db, db_restaurant):
@@ -35,7 +35,7 @@ def test_update_restaurant(db, db_restaurant):
     changed_notes = "temp_changed"
     assert db_restaurant.notes != changed_notes
 
-    restaurant_json = schemas.restaurant.Restaurant.from_orm(db_restaurant)
+    restaurant_json = restaurant.Restaurant.from_orm(db_restaurant)
     restaurant_json.notes = changed_notes
     restaurant_crud.update_restaurant(restaurant_json, db)
 

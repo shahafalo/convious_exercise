@@ -2,9 +2,9 @@ import datetime
 from sqlalchemy.orm import Session
 from typing import Union
 
-from models.vote import Vote
-from results_manager.manager import ResultsManager, TooManyVotesError
-import schemas
+from src.models.vote import Vote
+from src.results_manager.manager import ResultsManager, TooManyVotesError
+from src import schemas
 
 
 results_manager_client = ResultsManager()

@@ -1,4 +1,4 @@
-from db.session import SessionLocal
+from src.db.session import SessionLocal
 
 
 # Dependency

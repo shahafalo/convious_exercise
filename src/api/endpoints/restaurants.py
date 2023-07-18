@@ -3,9 +3,9 @@ from sqlalchemy.orm import Session
 
 from fastapi import APIRouter, HTTPException, Depends
 
-from schemas.restaurant import Restaurant, RestaurantCreate
-from crud import restaurant_crud
-from db.utils import get_db
+from src.schemas.restaurant import Restaurant, RestaurantCreate
+from src.crud import restaurant_crud
+from src.db.utils import get_db
 
 router = APIRouter()
 

@@ -1,8 +1,8 @@
 import json
 from collections import defaultdict
 
-from results_manager import consts
-from schemas.vote import Vote
+from src.results_manager import consts
+from src.schemas.vote import Vote
 
 
 class TooManyVotesError(Exception):
@@ -23,7 +23,7 @@ def _tie_break(votes: list[Vote], candidates: list[str]) -> int:
 
 class ResultsManager:
     def __init__(self):
-        self._json_path = "./results_manager/results_manager_config.json"
+        self._json_path = "./src/results_manager/results_manager_config.json"
         config_data = json.load(open(self._json_path, "r"))
         self.max_allowed_votes = config_data[consts.MAX_ALLOWED_VOTES]
         self.same_restaurant_votes_weights = config_data[consts.SAME_RESTAURANT_VOTES_WEIGHTS]
