@@ -3,7 +3,7 @@ from typing import Union
 
 from sqlalchemy.orm import Session
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, HTTPException
 
 from src.schemas.result import Result, Winner
 from src.crud import vote_crud
@@ -45,4 +45,6 @@ async def get_winner(date: Union[datetime.date, None] = None, db: Session = Depe
         date = datetime.date.today()
     votes = vote_crud.get_votes_history(start_date=date, end_date=date + datetime.timedelta(days=1), db=db)
     winner = manager.get_winner(votes)
+    if not winner:
+        raise HTTPException(status_code=404, detail="Winner not found")  # probably because there were no votes today
     return Winner(restaurant_id=winner[0])

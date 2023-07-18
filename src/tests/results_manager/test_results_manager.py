@@ -6,6 +6,5 @@ def test_get_config_data(results_manager):
 
 
 def test_calculate_results(results_manager, multiple_votes):
-    # todo: change to expected result and check other way as well
     results = results_manager.calculate_results(multiple_votes)
     assert results

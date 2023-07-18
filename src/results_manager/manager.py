@@ -5,6 +5,9 @@ from src.results_manager import consts
 from src.schemas.vote import Vote
 
 
+PROTEST_VOTE_KEY = "PROTEST_VOTE"
+
+
 class TooManyVotesError(Exception):
     pass
 
@@ -35,15 +38,18 @@ class ResultsManager:
             restaurant_id = vote.restaurant_id
             if not restaurant_id:
                 # handling count of protest votes
-                # todo: maybe  i'll just remove the protest vote, it'll make things easier
-                restaurant_id = "protest vote"
+                restaurant_id = PROTEST_VOTE_KEY
             restaurant_score_by_restaurant_ids[restaurant_id] += vote.vote_score
         return restaurant_score_by_restaurant_ids
 
     def get_winner(self, votes: list[Vote]):
         restaurant_score_by_restaurant_ids = self.calculate_results(votes)
+        if PROTEST_VOTE_KEY in restaurant_score_by_restaurant_ids:
+            # protest votes can't affect winner identity
+            restaurant_score_by_restaurant_ids.pop(PROTEST_VOTE_KEY)
         sorted_scores = sorted(restaurant_score_by_restaurant_ids.items(), key=lambda tup: tup[1], reverse=True)
-        # todo: handle empty list
+        if not sorted_scores:
+            return None
         if len(sorted_scores) == 1 or sorted_scores[0][1] > sorted_scores[1][1]:
             # Validation for tie
             return sorted_scores[0][0]
@@ -52,8 +58,12 @@ class ResultsManager:
     def calculate_vote_score(self, vote, previous_votes):
         relevant_votes = []
         for v in previous_votes:
-            if v.voter_id == vote.voter_id and int(v.restaurant_id) == int(vote.restaurant_id):
-                relevant_votes.append(v)
+            if v.voter_id == vote.voter_id:
+                if not v.restaurant_id and not vote.restaurant_id:
+                    # handling protest vote score
+                    relevant_votes.append(v)
+                elif v.restaurant_id and vote.restaurant_id and int(v.restaurant_id) == int(vote.restaurant_id):
+                    relevant_votes.append(v)
         return self.get_vote_score(len(relevant_votes))
 
     def get_vote_score(self, vote_index):

@@ -16,8 +16,6 @@ from src.models.vote import Vote
 from src.models.voter import Voter
 from src.results_manager.manager import ResultsManager
 
-# todo: add typehints
-
 
 SQLALCHEMY_DATABASE_URL = "sqlite://"
 
@@ -98,7 +96,6 @@ def db():
     db_session.close()
 
 
-# todo: rename json fixture to relevant name
 
 @pytest.fixture(scope="function")
 def new_restaurant_json(fakerer) -> dict:

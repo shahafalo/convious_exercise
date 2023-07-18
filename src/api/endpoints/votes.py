@@ -71,7 +71,6 @@ async def update_vote(vote_id: int, vote_update_in: VoteUpdate, db: Session = De
     db_vote = db_votes[0]
     if vote_update_in.voter_id != db_vote.voter_id:
         raise HTTPException(status_code=400, detail="Can't change voter id")
-    # todo: validate not changing vote id
     return vote_crud.update_vote(vote_update_in, db)
 
 

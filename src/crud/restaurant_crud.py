@@ -9,7 +9,6 @@ def get_restaurants_by_ids(restaurant_ids: list[int], db: Session) -> list[Resta
 
 
 def get_restaurant_by_name(restaurant_name: str, db: Session):
-    # todo: add tests
     return db.query(Restaurant).filter(Restaurant.name == restaurant_name).first()
 
 
@@ -18,7 +17,6 @@ def get_restaurants(db: Session, skip: int = 0, limit: int = 100):
 
 
 def create_restaurant(restaurant: schemas.restaurant.RestaurantCreate, db: Session):
-    # todo: refactor objects names to be clear what is db object and what is schema
     db_restaurant = Restaurant(**restaurant.dict())
     db.add(db_restaurant)
     db.commit()
