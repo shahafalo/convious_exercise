@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 
 class Result(BaseModel):
-    restaurant_id: int
+    restaurant_id: Union[int, None] = None
     score: Union[float, None] = None
 
 
